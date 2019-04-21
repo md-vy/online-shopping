@@ -19,11 +19,23 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class HibernateConfig {
 	
 	//Change the below based on the DBMS you choose
-	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/onlineshopping";
-	private final static String DATABASE_DRIVER = "org.h2.Driver";
-	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
-	private final static String DATABASE_USERNAME = "sa";
-	private final static String DATABASE_PASSWORD = "";
+	/*
+	 * private final static String DATABASE_URL =
+	 * "jdbc:h2:tcp://localhost/~/onlineshopping"; private final static String
+	 * DATABASE_DRIVER = "org.h2.Driver"; private final static String
+	 * DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect"; private final static
+	 * String DATABASE_USERNAME = "sa"; private final static String
+	 * DATABASE_PASSWORD = "";
+	 */
+	
+	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/onlineshopping";
+	private final static String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver"; 
+	/*
+	 * private final static String DATABASE_DIALECT =
+	 * "org.hibernate.dialect.H2Dialect";
+	 */ 
+	private final static String DATABASE_USERNAME = "root";
+	private final static String DATABASE_PASSWORD = "planetiq";
 	
 	
 	//dataSource bean will be available
@@ -33,7 +45,7 @@ public class HibernateConfig {
 		BasicDataSource dataSource = new BasicDataSource();
 		
 		//Providing the database connection information
-		dataSource.setDriverClassName(DATABASE_DRIVER);
+		dataSource.setDriverClassName(DATABASE_DRIVER); 
 		dataSource.setUrl(DATABASE_URL);
 		dataSource.setUsername(DATABASE_USERNAME);
 		dataSource.setPassword(DATABASE_PASSWORD);
@@ -60,7 +72,7 @@ public class HibernateConfig {
 		
 		Properties properties = new Properties();
 		
-		properties.put("hibernate.dialect", DATABASE_DIALECT);
+		/* properties.put("hibernate.dialect", DATABASE_DIALECT); */
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 		

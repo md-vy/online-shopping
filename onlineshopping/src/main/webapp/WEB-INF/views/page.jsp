@@ -94,6 +94,11 @@
 				<%@include file="payment.jsp"%>
 			</c:if>
 			
+			<!-- Load only when user clicks Cash on Delivery option -->
+			<c:if test="${userClickCODOption == true}">
+				<%@include file="cod.jsp"%>
+			</c:if>
+			
 			<!-- Load only when user clicks Card payment option -->
 			<c:if test="${userClickCardOption == true}">
 				<%@include file="card.jsp"%>

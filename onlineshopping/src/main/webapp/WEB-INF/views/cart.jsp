@@ -81,7 +81,7 @@
 						<td colspan="2" class="hidden-xs"></td>
 						<td class="hidden-xs text-center"><strong>Total
 								&#8377; ${userModel.cart.grandTotal}</strong></td>
-						<td><a href="${contextRoot}/payment" class="btn btn-success btn-block">Checkout
+						<td><a href="${contextRoot}/payment?gd=${userModel.cart.grandTotal}" class="btn btn-success btn-block">Checkout
 								<span class="glyphicon glyphicon-chevron-right"></span>
 						</a></td>
 					</tr>

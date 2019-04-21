@@ -1,7 +1,9 @@
 package net.md.onlineshopping.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -10,11 +12,21 @@ public class Payment {
 	
 	
 	@RequestMapping(value = "/payment")
-	public ModelAndView payment() {
+	public ModelAndView payment(@RequestParam String gd) {
 
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Payment Gateway");
 		mv.addObject("userClickPayment", true);
+		mv.addObject("gdTot", gd);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/payment/cod")
+	public ModelAndView cod() {
+
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "COD Details");
+		mv.addObject("userClickCODOption", true);
 		return mv;
 	}
 	
