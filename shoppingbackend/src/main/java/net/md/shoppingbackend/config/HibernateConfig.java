@@ -34,7 +34,7 @@ public class HibernateConfig {
 	 * private final static String DATABASE_DIALECT =
 	 * "org.hibernate.dialect.H2Dialect";
 	 */ 
-	private final static String DATABASE_USERNAME = "root";
+	private final static String DATABASE_USERNAME = "md";
 	private final static String DATABASE_PASSWORD = "planetiq";
 	
 	
