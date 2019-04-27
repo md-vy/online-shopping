@@ -1,5 +1,5 @@
 CREATE TABLE category (
-	id IDENTITY,
+	id Int AUTO_INCREMENT,
 	name VARCHAR(50),
 	description VARCHAR(255),
 	image_url VARCHAR(50),
@@ -15,7 +15,7 @@ INSERT INTO category(name,description,image_url,is_active) VALUES('Mobile','This
 
 
 CREATE TABLE user_detail(
-	id IDENTITY,
+	id Int AUTO_INCREMENT,
 	first_name VARCHAR(50),
 	last_name VARCHAR(50),
 	role VARCHAR(50),
@@ -43,7 +43,7 @@ INSERT INTO user_detail
 VALUES ('Khozema', 'Nullwala', 'USER', true, '$2a$06$4mvvyO0h7vnUiKV57IW3oudNEaKPpH1xVSdbie1k6Ni2jfjwwminq', 'kn@gmail.com', '7777777777');
 
 CREATE TABLE product(
-	id IDENTITY,
+	id Int AUTO_INCREMENT,
 	code VARCHAR(20),
 	name VARCHAR(50),
 	brand VARCHAR(50),
@@ -78,7 +78,7 @@ INSERT INTO product(code,name,brand,description,unit_price,quantity,is_active,ca
 VALUES('PRDABCXYZDEFX','Dell Latitude E6510','dell','This is one of the best laptop series available in market',48000,5,true,1,3,0,0);
 
 CREATE TABLE address (
-	id IDENTITY,
+	id Int AUTO_INCREMENT,
 	user_id int,
 	address_line_one VARCHAR(100),
 	address_line_two VARCHAR(100),
@@ -92,9 +92,19 @@ CREATE TABLE address (
 	CONSTRAINT pk_address_id PRIMARY KEY (id)
 );
 
+--adding address
+INSERT INTO address(ADDRESS_LINE_ONE,ADDRESS_LINE_TWO,IS_BILLING,CITY,COUNTRY,POSTAL_CODE,IS_SHIPPING,STATE,USER_ID)
+VALUES('101/B Jadoo Society, Krissh Nagar','Near Kaabil Store',TRUE,'Mumbai','India','400001',FALSE,'Maharashtra',1);
+INSERT INTO address(ADDRESS_LINE_ONE,ADDRESS_LINE_TWO,IS_BILLING,CITY,COUNTRY,POSTAL_CODE,IS_SHIPPING,STATE,USER_ID)
+VALUES('201/B Jadoo Society, Kishan Kanhaiya Nagar','Near Kudrat Store',FALSE,'Mumbai','India','400001',TRUE,'Maharashtra',2);
+INSERT INTO address(ADDRESS_LINE_ONE,ADDRESS_LINE_TWO,IS_BILLING,CITY,COUNTRY,POSTAL_CODE,IS_SHIPPING,STATE,USER_ID)
+VALUES('301/B Jadoo Society, Kishan Kanhaiya Nagar','Near Kudrat Store',FALSE,'Bangalore','India','400001',TRUE,'Karanataka',3);
+INSERT INTO address(ADDRESS_LINE_ONE,ADDRESS_LINE_TWO,IS_BILLING,CITY,COUNTRY,POSTAL_CODE,IS_SHIPPING,STATE,USER_ID)
+VALUES('B/10 LDA Colony','Alambagh',TRUE,'Lucknow','India','226001',FALSE,'U.P.',4);
+
 
 CREATE TABLE cart (
-	id IDENTITY,
+	id Int AUTO_INCREMENT,
 	user_id int,
 	grand_total DECIMAL(10,2),
 	cart_lines int,
@@ -104,7 +114,7 @@ CREATE TABLE cart (
 
 
 CREATE TABLE cart_line (
-	id IDENTITY,
+	id Int AUTO_INCREMENT,
 	cart_id int,
 	total DECIMAL(10,2),
 	product_id int,
